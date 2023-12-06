@@ -1,37 +1,20 @@
- # 
- # This file is part of python-dgus (https://github.com/seho85/python-dgus).
- # Copyright (c) 2022 Sebastian Holzgreve
- # 
- # This program is free software: you can redistribute it and/or modify  
- # it under the terms of the GNU General Public License as published by  
- # the Free Software Foundation, version 3.
- #
- # This program is distributed in the hope that it will be useful, but 
- # WITHOUT ANY WARRANTY; without even the implied warranty of 
- # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
- # General Public License for more details.
- #
- # You should have received a copy of the GNU General Public License 
- # along with this program. If not, see <http://www.gnu.org/licenses/>.
- #
-
-import datetime
-from time import sleep, time
-from dgus.display.communication.request import Request
-from dgus.display.mask import Mask
-from dgus.display.communication.communication_interface import SerialCommunication
-from dgus.display.communication.protocol import build_read_vp, build_write_vp
 import json
-
-from controls.moonraker_data_variable import MoonrakerDataVariable
-from moonraker.websocket_interface import WebsocketInterface
-from controls.klipper_value_format import KlipperValueType
-
+from time import sleep
 from threading import Thread
 
+from tjc.display.communication.request import Request
+from tjc.display.mask import Mask
+from tjc.display.communication.communication_interface import SerialCommunication
+from tjc.display.communication.protocol import build_read_vp, build_write_vp
+
+from controls.moonraker_data_variable import MoonrakerDataVariable
+from controls.klipper_value_format import KlipperValueType
+
+from moonraker.websocket_interface import WebsocketInterface
 from moonraker.moonraker_request import MoonrakerRequest
-from data_addresses import DataAddress
 from moonraker.request_id import WebsocktRequestId
+
+from data_addresses import DataAddress
 
 class TuningMask(Mask):
 

@@ -12,7 +12,7 @@ The *klipper-dgus* project consists of two main parts:
     * controls the display over the serial interface
         * using the `python-dgus <https://github.com/seho85/python-dgus>`_ library
     * reads data from klipper using the Moonraker Websocket.
-* :ref:`Display application <display-application>` (created in DGUS Tool)
+* :ref:`Display application <display-application>` (created in TJC Tool)
     * defines which controls are on each DisplayMask
     * how the controls look like (text color, number format, a.s.o)
 
@@ -25,7 +25,7 @@ Display Control Application
 The python sources are developed in Visual Studio Code.
 
 
-DGUS Display Application
+TJC Display Application
 ------------------------
 
-The Display Application is with the DGUS Tool v8.2.1.14
+The Display Application is with the TJC Tool v8.2.1.14

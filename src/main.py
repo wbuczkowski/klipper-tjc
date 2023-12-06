@@ -1,51 +1,19 @@
- # 
- # This file is part of python-dgus (https://github.com/seho85/python-dgus).
- # Copyright (c) 2022 Sebastian Holzgreve
- # 
- # This program is free software: you can redistribute it and/or modify  
- # it under the terms of the GNU General Public License as published by  
- # the Free Software Foundation, version 3.
- #
- # This program is distributed in the hope that it will be useful, but 
- # WITHOUT ANY WARRANTY; without even the implied warranty of 
- # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
- # General Public License for more details.
- #
- # You should have received a copy of the GNU General Public License 
- # along with this program. If not, see <http://www.gnu.org/licenses/>.
- #
-
+"""main"""
 import argparse
 import os
-
-parser = argparse.ArgumentParser()
-parser.add_argument('-c', '--config_dir', type=str, help="Path to config directory")
-args = parser.parse_args()
-
-config_dir = os.path.join(os.getcwd(), "..", "config")
-
-if args.config_dir:
-    config_dir = args.config_dir
-
 import json
 import sys
 import logging
 import logging.config
-
-logger_json_file = os.path.join(config_dir, "logging.json")
-with open(logger_json_file) as json_file:
-    json_data = json.load(json_file)
-    logging.config.dictConfig(json_data)
-
-
 from signal import signal, SIGINT
 from time import sleep
-from dgus.display.communication.request import Request
-from dgus.display.communication.protocol import build_write_vp
-from dgus.display.communication.communication_interface import SerialCommunication
-from dgus.display.display import Display
-from dgus.display.mask import Mask
 
+from tjc.display.communication.communication_interface import SerialCommunication
+from tjc.display.display import Display
+from tjc.display.mask import Mask
+
+from moonraker.websocket_interface import WebsocketInterface
+from moonraker.klippy_state import KlippyState
 
 from overview_display_mask import OverviewDisplayMask
 from axes_display_mask import AxesDisplayMask
@@ -56,14 +24,25 @@ from extruder_temp_to_low_mask import ExtruderTemperatureToLowMask
 from fan_display_mask import FanMask
 from startup_mask import StartupMask
 
-from moonraker.websocket_interface import WebsocketInterface
-from moonraker.klippy_state import KlippyState
+parser = argparse.ArgumentParser()
+parser.add_argument('-c', '--config_dir', type=str, help="Path to config directory")
+args = parser.parse_args()
 
+config_dir = os.path.join(os.getcwd(), "..", "config")
+
+if args.config_dir:
+    config_dir = args.config_dir
+
+logger_json_file = os.path.join(config_dir, "logging.json")
+with open(logger_json_file) as json_file:
+    json_data = json.load(json_file)
+    logging.config.dictConfig(json_data)
 
 logger = logging.getLogger(__name__)
+websock: WebsocketInterface = None
 
 def emergency_stop_pressed(response : bytes):
-    
+
     response_payload = response[7:]
     keycode = int.from_bytes(response_payload, byteorder='big')
 
@@ -74,14 +53,9 @@ def emergency_stop_pressed(response : bytes):
             "method": "printer.emergency_stop",
             "id": 4564
         }
-        global websock
         websock.ws_app.send(json.dumps(emergeny_stop_rpc_cmd))
- 
 
 if __name__ == "__main__":
-      
-    
-    
     logger.info("Using config directory: %s", config_dir)
 
     PRINTER_IP = "10.0.1.69"
@@ -168,7 +142,6 @@ if __name__ == "__main__":
 
     extruder_temp_to_low_mask = ExtruderTemperatureToLowMask(serial_com, websock)
     display.add_mask(extruder_temp_to_low_mask)
-
 
     if serial_com.start_com_thread():
         display.read_config_data_for_all_controls()

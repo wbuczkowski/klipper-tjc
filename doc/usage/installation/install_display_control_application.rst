@@ -33,7 +33,7 @@ change into the directory
     It happend multiple times in the past, that the serial port was not detected properly.
     I recommend to remove all USB devices connected to the Klipper Hostmachine before setup.
 
-    On the *Please disconnect USB-TTL used for DGUS Display...* just press enter.
+    On the *Please disconnect USB-TTL used for TJC Display...* just press enter.
 
     Connect the USB-TTL and continue with normal setup
 
@@ -45,7 +45,7 @@ And run the install script:
 
 
 .. hint::
-    And after installation tweak :ref:`dgus_display_macros.cfg <dgus_display_macros_cfg>` and include
+    And after installation tweak :ref:`tjc_display_macros.cfg <tjc_display_macros_cfg>` and include
     it to your *printer.cfg*
 
 .. note::
@@ -60,7 +60,7 @@ Installation
 .. code-block:: shell
     
     #####################################
-    DGUS for Klipper (MainsailOS Install)
+    TJC for Klipper (MainsailOS Install)
     #####################################
     Checking if python3-venv is installed...
     python3-venv is already installed
@@ -121,7 +121,7 @@ Installation
 
     Creating systemd service (autostart)
 
-    Installing DGUS for Klipper Service
+    Installing TJC for Klipper Service
     [sudo] password for pi:
 
     Reloading systemd services...
@@ -137,18 +137,18 @@ Configuration
 
 .. code-block:: shell
 
-    DGUS for Klipper - Config generation
+    TJC for Klipper - Config generation
 
 
     Step 1) Determine serial device for USB-TTL from Display:
 
-    Please disconnect USB-TTL used for DGUS Display...
+    Please disconnect USB-TTL used for TJC Display...
     Press Enter to continue
 
-    Please connect USB-TTL of DGUS Display
+    Please connect USB-TTL of TJC Display
     And press Enter to continue
 
-    Found serial interface for DGUS Display: usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0
+    Found serial interface for TJC Display: usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0
 
 
     Step 2) Setup Moonraker IP
@@ -172,7 +172,7 @@ Configuration
 Manual Installation
 ===================
 
-1) Copy the *dgus-klipper* folder to your machine or directly clone it to the machine 
+1) Copy the *klipper-tjc* folder to your machine or directly clone it to the machine 
 
     .. code-block:: shell
         
@@ -183,7 +183,7 @@ Manual Installation
     .. code-block::
 
         sudo apt-get install python3-venv
-4)  Switch into the copied (cloned) *dgus-klipper* folder
+4)  Switch into the copied (cloned) *klipper-tjc* folder
    
     1)  Create a python virtual environment 
     
@@ -205,4 +205,4 @@ Manual Installation
 
     4) Tweak :ref:`serial_config.json <serial_config_json>`
     5) Tweak :ref:`websocket.json <websocket_json>`
-    6) Tweak :ref:`dgus_display_macros.cfg <dgus_display_macros_cfg>`
+    6) Tweak :ref:`tjc_display_macros.cfg <tjc_display_macros_cfg>`

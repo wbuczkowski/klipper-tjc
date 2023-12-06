@@ -27,8 +27,8 @@ To drive any of the axes the following procedure must be performed:
 
 User Position 1 / 2
 -------------------
-These Buttons call a the DGUS_USER_POS1 / DGUS_USER_POS2 defined in the :ref:`dgus_display_macros.cfg <dgus_display_macros_cfg>`
+These Buttons call a the TJC_USER_POS1 / TJC_USER_POS2 defined in the :ref:`tjc_display_macros.cfg <tjc_display_macros_cfg>`
 
 This Macros can be freely defined by the user. 
 
-The DGUS_USER_POS1 moves the Printhead to a maintance position by default.  ("WARTUNGSPOSTION" Macro from Cryd - Vyper Extended)
+The TJC_USER_POS1 moves the Printhead to a maintance position by default.  ("WARTUNGSPOSTION" Macro from Cryd - Vyper Extended)

@@ -4,7 +4,7 @@
 serial_config.json
 ******************
 
-The serial *serial_config.json* file contains the settings for the serial interface which is used to communicate with the DGUS Display.
+The serial *serial_config.json* file contains the settings for the serial interface which is used to communicate with the TJC Display.
 
 Currently it contains only a single configuration option.
 

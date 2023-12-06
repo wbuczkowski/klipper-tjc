@@ -12,8 +12,6 @@ if args.config_dir:
 else:
     print("Error: Need -c (--config_dir) parameter")
 
-
-
 def read_json_config(serial_config_json_file):
         try:
             with open(serial_config_json_file) as json_file:
@@ -22,10 +20,8 @@ def read_json_config(serial_config_json_file):
                 
         except FileNotFoundError:
             print("Could not open: %s", serial_config_json_file)
-            
 
-
-print("Klipper for DGUS - Settings Common Parameters:\n")
+print("Klipper for TJC - Settings Common Parameters:\n")
 
 websocket_json_file = os.path.join(config_dir, "websocket.json")
 websocket_json = read_json_config(websocket_json_file)

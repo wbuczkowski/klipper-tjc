@@ -16,6 +16,6 @@ Controls
 
 LED On / LED Off Buttons
 ------------------------
-This Buttons call the *DGUS_LED_ON* and *DGUS_LED_OFF* macros defined in :ref:`dgus_display_macros.cfg <dgus_display_macros_cfg>`
+This Buttons call the *TJC_LED_ON* and *TJC_LED_OFF* macros defined in :ref:`tjc_display_macros.cfg <tjc_display_macros_cfg>`
 
 The default implementation toggles the printhead LED  ([output_pin LED] in Cryd - Vyper Extended Config)

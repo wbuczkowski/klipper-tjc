@@ -1,15 +1,15 @@
 
 [Unit]
-Description=DGUS Display for Klipper
+Description=TJC Display for Klipper
 Requires=moonraker.service
 
 [Service]
 User=<user>
 Group=<user>
 Type=idle
-WorkingDirectory=<dgus_dir>
+WorkingDirectory=<tjc_dir>
 ExecStartPre=/usr/bin/sleep 15
-ExecStart=<dgus_dir>/venv/bin/python3 <dgus_dir>/src/main.py -c <config_dir>
+ExecStart=<tjc_dir>/venv/bin/python3 <tjc_dir>/src/main.py -c <config_dir>
 Restart=on-failure
 
 [Install]

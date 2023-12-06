@@ -11,14 +11,14 @@
       "": {
          "level": "INFO"
       },
-      "dgus.display.communication.communication_interface": {
+      "tjc.display.communication.communication_interface": {
          "handlers": [
             "console1"
          ],
          "propagate": false,
          "level": "WARN"
       },
-      "dgus.display.display": {
+      "tjc.display.display": {
          "handlers": [
             "console1"
          ],

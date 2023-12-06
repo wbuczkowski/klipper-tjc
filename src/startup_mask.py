@@ -1,13 +1,13 @@
 import json
-from dgus.display.mask import Mask
-from dgus.display.communication.communication_interface import SerialCommunication
+from tjc.display.mask import Mask
+from tjc.display.communication.communication_interface import SerialCommunication
+from tjc.display.controls.text_variable import TextVariable
 from moonraker.websocket_interface import WebsocketInterface
-from dgus.display.controls.text_variable import TextVariable
-from data_addresses import DataAddress
-from keycodes import KeyCodes
 from moonraker.request_id import WebsocktRequestId
 from moonraker.klippy_state import KlippyState
 from controls.moonraker_text_variable import MoonrakerTextVariable
+from data_addresses import DataAddress
+from keycodes import KeyCodes
 
 class StartupMask(Mask):
 

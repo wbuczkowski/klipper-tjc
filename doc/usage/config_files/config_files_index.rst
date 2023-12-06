@@ -8,4 +8,4 @@ Config Files
 
    serial_config_json
    websocket_json
-   dgus_display_macros_cfg
+   tjc_display_macros_cfg

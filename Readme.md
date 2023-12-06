@@ -1,8 +1,8 @@
-klipper_dgus
+klipper_tjc
 ============
-A python project that connects a DGUS display to [Klipper](https://www.klipper3d.org/)
+A python project that connects a TJC display to [Klipper](https://www.klipper3d.org/)
 
-The display i'm using here is a *DMG80480C043_02WTRZ07* (Stock Display of Anycubic Vyper 3D-Printer) which has a resolution 480x800. For this Display you can find the DGUS Project in the *dgus_project* folder.
+The display i'm using here is a *DMG80480C043_02WTRZ07* (Stock Display of Anycubic Vyper 3D-Printer) which has a resolution 480x800. For this Display you can find the TJC Project in the *dgus_project* folder.
 
 For Displays with other resolution, the Project must be recreated.
 

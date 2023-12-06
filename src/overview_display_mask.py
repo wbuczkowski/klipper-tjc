@@ -1,31 +1,13 @@
-
- # 
- # This file is part of python-dgus (https://github.com/seho85/python-dgus).
- # Copyright (c) 2022 Sebastian Holzgreve
- # 
- # This program is free software: you can redistribute it and/or modify  
- # it under the terms of the GNU General Public License as published by  
- # the Free Software Foundation, version 3.
- #
- # This program is distributed in the hope that it will be useful, but 
- # WITHOUT ANY WARRANTY; without even the implied warranty of 
- # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
- # General Public License for more details.
- #
- # You should have received a copy of the GNU General Public License 
- # along with this program. If not, see <http://www.gnu.org/licenses/>.
- #
  
 import json
-from dgus.display.communication.communication_interface import SerialCommunication
-from dgus.display.mask import Mask
-from dgus.display.onscreen_keyboard import OnScreenKeyBoard
 import logging
+from tjc.display.communication.communication_interface import SerialCommunication
+from tjc.display.mask import Mask
+from tjc.display.onscreen_keyboard import OnScreenKeyBoard
 
 from controls.moonraker_data_variable import MoonrakerDataVariable
 from controls.moonraker_text_variable import MoonrakerTextVariable
 from controls.moonraker_printtime_text_variable import MoonrakerPrintTimeTextVariable, PrintTimeDisplay
-
 
 from moonraker.websocket_interface import WebsocketInterface
 from controls.klipper_value_format import KlipperValueType

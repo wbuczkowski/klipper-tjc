@@ -18,6 +18,7 @@
 
 
     },
-    "python.linting.pylintEnabled": true,
-    "python.linting.enabled": false,
+    "python.analysis.typeCheckingMode": "off",
+    "python.analysis.autoImportCompletions": false,
+    "pylint.cwd": "${workspaceFolder}/src"
 }

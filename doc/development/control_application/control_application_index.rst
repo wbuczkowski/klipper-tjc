@@ -5,7 +5,7 @@ Control Application
 *******************
 
 The Display Control Application controls the display. It uses the Moonraker to commnicate with Klipper and
-the serial interface to control the DGUS Display.
+the serial interface to control the TJC Display.
 
 
 See :ref:`Display Control Application Communication <display-control-application-communication>`

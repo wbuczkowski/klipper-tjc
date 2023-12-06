@@ -17,9 +17,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'klipper-dgus (DGUS Display for Klipper3D)'
-copyright = '2022, Sebastian Holzgreve'
-author = 'Sebastian Holzgreve'
+project = 'klipper-tjc (TJC Display for Klipper3D)'
+#copyright = '2022, Sebastian Holzgreve'
+author = 'Wladyslaw Buczkowski'
 
 # The full version, including alpha/beta/rc tags
 release = '0.0.1'

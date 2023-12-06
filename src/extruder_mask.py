@@ -1,11 +1,10 @@
 import json
 
-from dgus.display.mask import Mask
-from dgus.display.communication.communication_interface import SerialCommunication
-from dgus.display.onscreen_keyboard import OnScreenKeyBoard
-from dgus.display.communication.protocol import build_write_vp
-from dgus.display.communication.request import Request
-from dgus.display.display import Display
+from tjc.display.mask import Mask
+from tjc.display.communication.communication_interface import SerialCommunication
+from tjc.display.communication.protocol import build_write_vp
+from tjc.display.communication.request import Request
+from tjc.display.display import Display
 from keycodes import KeyCodes
 
 from moonraker.websocket_interface import WebsocketInterface
@@ -187,8 +186,3 @@ class ExtruderMask(Mask):
 
         else:
             self.display.switch_to_mask(52, True)
-
-
-        
-
-

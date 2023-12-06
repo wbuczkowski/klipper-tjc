@@ -18,21 +18,21 @@ Please read the following section and follow the instructions to get an idea wha
 Check Moonraker Connection
 ==========================
 You can see if the connection to Moonraker was established successfully in the default logging outputs 
-of the *klipper_dgus* systemd service.
+of the *klipper_tjc* systemd service.
 
-#) Restart *klipper_dgus* service
+#) Restart *klipper_tjc* service
 
     .. code-block:: shell
         
-        systemctl restart klipper_dgus
+        systemctl restart klipper_tjc
 
 #) Wait arround 20 seconds 
 
-#) To print out the logs of *klipper_dgus* service use the following command:
+#) To print out the logs of *klipper_tjc* service use the following command:
 
     .. code-block:: shell
 
-        journalctl -u klipper_dgus
+        journalctl -u klipper_tjc
 
     .. hint::
         You can scroll up and down through the messages using the Up/Down Arrow on your keyboard.
@@ -99,13 +99,13 @@ You can use following procedure to check if your RX/TX lines need be switched:
 
 #) Enable logging for the serial data exchange.
     
-    * open *logging.json* file (can be found in *dgus_display* folder using the web-ui)
+    * open *logging.json* file (can be found in *tjc_display* folder using the web-ui)
     * locate the following section
 
     .. code-block:: json
 
 
-        "dgus.display.communication.communication_interface": {
+        "tjc.display.communication.communication_interface": {
             "handlers": [
                 "console1"
             ],
@@ -118,7 +118,7 @@ You can use following procedure to check if your RX/TX lines need be switched:
 
     .. code-block:: json
 
-        "dgus.display.communication.communication_interface": {
+        "tjc.display.communication.communication_interface": {
             "handlers": [
                 "console1"
             ],
@@ -129,34 +129,34 @@ You can use following procedure to check if your RX/TX lines need be switched:
 
     * save the file
 
-#) restart *klipper_dgus* service
+#) restart *klipper_tjc* service
         
     .. code-block:: shell
 
-        systemctl restart klipper_dgus
+        systemctl restart klipper_tjc
 
 #) view the log outputs
 
     .. code-block:: shell
 
-        journalctl -u klipper_dgus
+        journalctl -u klipper_tjc
 
     
     When you could find entries in the log that contain *"Received response for..."* the your serial connected interface correct.
 
     .. code-block:: shell
 
-        Oct 05 21:14:19 mainsailos python3[21068]: 2022-10-05 09:14:19 : INFO  : dgus.display.communication.communication_interface : _do_serial_communication : Sending Request 'DataVariable - Write Data - Address: 0x2030'
-        Oct 05 21:14:19 mainsailos python3[21068]: 2022-10-05 09:14:19 : INFO  : dgus.display.communication.communication_interface : _do_serial_communication : Received response for 'DataVariable - Write Data - Address: 0x2030'
+        Oct 05 21:14:19 mainsailos python3[21068]: 2022-10-05 09:14:19 : INFO  : tjc.display.communication.communication_interface : _do_serial_communication : Sending Request 'DataVariable - Write Data - Address: 0x2030'
+        Oct 05 21:14:19 mainsailos python3[21068]: 2022-10-05 09:14:19 : INFO  : tjc.display.communication.communication_interface : _do_serial_communication : Received response for 'DataVariable - Write Data - Address: 0x2030'
 
     If you you just see *"Sending Request .."* the you have to switch RX and TX pin. Then check the logs again.
 
 
 #) Repeat step 1 but disable logging by setting by setting *level* back to *WARN*
 
-#) restart *klipper_dgus* service
+#) restart *klipper_tjc* service
         
     .. code-block:: shell
 
-        systemctl restart klipper_dgus
+        systemctl restart klipper_tjc
 

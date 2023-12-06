@@ -4,17 +4,17 @@ import datetime
 from threading import Thread, Lock
 from time import sleep
 
-from dgus.display.communication.request import Request
-from dgus.display.communication.communication_interface import SerialCommunication
-from dgus.display.mask import Mask
-from dgus.display.communication.protocol import build_read_vp, build_write_vp
-from dgus.display.onscreen_keyboard import OnScreenKeyBoard
+from tjc.display.communication.request import Request
+from tjc.display.communication.communication_interface import SerialCommunication
+from tjc.display.mask import Mask
+from tjc.display.communication.protocol import build_read_vp, build_write_vp
+from tjc.display.onscreen_keyboard import OnScreenKeyBoard
 
 from moonraker.websocket_interface import WebsocketInterface
 from moonraker.moonraker_request import MoonrakerRequest
+from moonraker.request_id import WebsocktRequestId
 from data_addresses import DataAddress
 from keycodes import KeyCodes
-from moonraker.request_id import WebsocktRequestId
 
 class FanMask(Mask):
 
@@ -75,13 +75,13 @@ class FanMask(Mask):
             "jsonrpc": "2.0",
             "method": "printer.gcode.script",
             "params": {
-                "script": "DGUS_LED_OFF"
+                "script": "TJC_LED_OFF"
             },
             "id": WebsocktRequestId.LED_CMD
         }
 
         if led_on:
-            set_led_state_rpc_request["params"]["script"] = "DGUS_LED_ON"
+            set_led_state_rpc_request["params"]["script"] = "TJC_LED_ON"
 
         self.websock.ws_app.send(json.dumps(set_led_state_rpc_request))
 

@@ -1,36 +1,17 @@
- # 
- # This file is part of python-dgus (https://github.com/seho85/python-dgus).
- # Copyright (c) 2022 Sebastian Holzgreve
- # 
- # This program is free software: you can redistribute it and/or modify  
- # it under the terms of the GNU General Public License as published by  
- # the Free Software Foundation, version 3.
- #
- # This program is distributed in the hope that it will be useful, but 
- # WITHOUT ANY WARRANTY; without even the implied warranty of 
- # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
- # General Public License for more details.
- #
- # You should have received a copy of the GNU General Public License 
- # along with this program. If not, see <http://www.gnu.org/licenses/>.
- #
- 
-from distutils.log import error
-import os
+# from distutils.log import error
+# import os
 import json
+import logging
+from queue import Queue
 from threading import Thread, Lock
 from time import sleep
 from typing import Any, Callable
 from websocket import WebSocketApp
 from jsonmerge import merge
-from queue import Queue
 
-from dgus.display.serialization.json_serializable import JsonSerializable
+from tjc.display.serialization.json_serializable import JsonSerializable
 from moonraker.request_id import WebsocktRequestId
 from moonraker.moonraker_request import MoonrakerRequest
-
-import logging
-
 from moonraker.klippy_state import KlippyState
 from moonraker.printer_state import PrinterState
 
@@ -91,14 +72,12 @@ class WebsocketInterface(JsonSerializable):
         self.port = port
 
         self.create_websocket()
-        
 
     def create_websocket(self):
-
         ws_url = f"ws://{self.printer_ip}:{str(self.port)}/websocket?token="
 
         self._logger.info("Using websocket URL: %s", ws_url)
-       
+
         def on_close(ws_app, close_status, close_msg):
             self.ws_on_close(ws_app, close_status, close_msg)
 
@@ -314,8 +293,6 @@ class WebsocketInterface(JsonSerializable):
         except FileNotFoundError:
             self._logger.critical("Unable to read configuration from %s",websocket_json_config)
             return False
-            
-
 
     def get_klipper_data(self, klipper_data : list, array_index : int = -1):
         with self.json_resouce_lock:
